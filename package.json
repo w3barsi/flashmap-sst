@@ -9,7 +9,9 @@
     "deploy": "sst deploy",
     "remove": "sst remove",
     "console": "sst console",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "web:dev": "pnpm run -C apps/web dev",
+    "db:push": "pnpm run -C packages/core dev"
   },
   "devDependencies": {
     "sst": "^2.39.2",
