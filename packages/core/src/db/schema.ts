@@ -15,7 +15,7 @@ import {
 } from "drizzle-orm/mysql-core";
 import { type AdapterAccount } from "next-auth/adapters";
 
-import { createId } from "~/utils/id";
+// import { createId } from "~/utils/id";
 
 // export const createDbId = () => {
 //   const createId = init({
