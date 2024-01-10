@@ -33,7 +33,7 @@ import { createId } from "~/utils/id";
 export const mysqlTable = mysqlTableCreator((name) => `flashmap_${name}`);
 
 export const test = mysqlTable("test", {
-  test: text("test)")
+  test: text("test")
 })
 
 export const mindmap = mysqlTable("mindmap", {
