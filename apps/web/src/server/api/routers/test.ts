@@ -17,10 +17,8 @@ export const testRouter = createTRPCRouter({
   create: publicProcedure
     .mutation(async ({ ctx }) => {
       // simulate a slow db call
-      console.time("insert")
       await ctx.db.insert(test).values({
         test: String(Date.now())
       });
-      console.timeEnd("insert")
     }),
 });
