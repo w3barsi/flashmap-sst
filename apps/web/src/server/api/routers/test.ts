@@ -1,11 +1,7 @@
-import AWS from "aws-sdk";
 import { SQS } from "@aws-sdk/client-sqs";
 import { z } from "zod";
 
-import {
-  createTRPCRouter,
-  publicProcedure,
-} from "~/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { test } from "@flashmap/core/src/db/schema";
 
 // JS SDK v3 does not support global configuration.
@@ -31,12 +27,11 @@ export const testRouter = createTRPCRouter({
   createMessage: publicProcedure
     .input(z.object({ message: z.string() }))
     .mutation(async ({ input }) => {
-      await sqs
-        .sendMessage({
-          QueueUrl:
-            "https://sqs.ap-southeast-1.amazonaws.com/281646808072/my-queue",
-          MessageBody: JSON.stringify({ message: input.message }),
-        });
+      await sqs.sendMessage({
+        QueueUrl:
+          "https://sqs.ap-southeast-1.amazonaws.com/281646808072/flashmap-queue",
+        MessageBody: JSON.stringify({ message: input.message }),
+      });
 
       console.log("SENT A MESSAGE QUEUE! ", Date.now());
     }),

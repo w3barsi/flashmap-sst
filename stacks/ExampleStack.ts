@@ -13,7 +13,7 @@ export function ExampleStack({ stack }: StackContext) {
     },
     cdk: {
       queue: {
-        queueName: "my-queue",
+        queueName: "flashmap-queue",
         visibilityTimeout: Duration.seconds(120)
       }
     }
