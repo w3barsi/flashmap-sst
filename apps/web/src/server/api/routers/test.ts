@@ -8,7 +8,7 @@ import { test } from "@flashmap/core/src/db/schema";
 // Codemod has attempted to pass values to each service client in this file.
 // You may need to update clients outside of this file, if they use global config.
 const sqs = new SQS({
-  region: "ap-southeast-1",
+  region: "us-east-1",
 });
 
 export const testRouter = createTRPCRouter({
@@ -28,8 +28,7 @@ export const testRouter = createTRPCRouter({
     .input(z.object({ message: z.string() }))
     .mutation(async ({ input }) => {
       await sqs.sendMessage({
-        QueueUrl:
-          "https://sqs.ap-southeast-1.amazonaws.com/281646808072/flashmap-queue",
+        QueueUrl: process.env.QUEUE_LINK,
         MessageBody: JSON.stringify({ message: input.message }),
       });
 

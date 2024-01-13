@@ -8,13 +8,13 @@ export function ExampleStack({ stack }: StackContext) {
     consumer: {
       function: {
         handler: "packages/functions/src/consumer.main",
-        timeout: 120
+        timeout: 10
       }
     },
     cdk: {
       queue: {
         queueName: "flashmap-queue",
-        visibilityTimeout: Duration.seconds(120)
+        visibilityTimeout: Duration.seconds(10)
       }
     }
   });
