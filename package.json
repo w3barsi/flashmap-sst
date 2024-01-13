@@ -14,7 +14,7 @@
     "db:push": "pnpm run -C packages/core dev"
   },
   "devDependencies": {
-    "sst": "^2.39.2",
+    "sst": "2.39.5",
     "aws-cdk-lib": "2.110.1",
     "constructs": "10.3.0",
     "typescript": "^5.3.3",

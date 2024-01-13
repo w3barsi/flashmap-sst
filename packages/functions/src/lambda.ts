@@ -1,8 +1,7 @@
-import { ApiHandler } from "sst/node/api";
-
-export const handler = ApiHandler(async (_evt) => {
+export async function main() {
+  console.log("Message queued!");
   return {
     statusCode: 200,
-    body: `Hello world. The time is ${new Date().toISOString()}`,
+    body: JSON.stringify({ status: "successful" }),
   };
-});
+}

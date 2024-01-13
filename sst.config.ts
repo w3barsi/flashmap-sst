@@ -1,14 +1,14 @@
 import { SSTConfig } from "sst";
-import { API } from "./stacks/MyStack";
+import { ExampleStack } from "./stacks/ExampleStack";
 
 export default {
   config(_input) {
     return {
       name: "flashmap",
-      region: "us-east-1",
+      region: "ap-southeast-1",
     };
   },
   stacks(app) {
-    app.stack(API);
+    app.stack(ExampleStack);
   }
 } satisfies SSTConfig;
