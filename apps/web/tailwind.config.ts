@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       boxShadow: {
-        "brut" : "0.25rem 0.25rem hsl(0, 0%, 0%)"
+        "brut" : "0.25rem 0.25rem var(--tw-shadow)"
       },
       colors: {
         border: "hsl(var(--border))",

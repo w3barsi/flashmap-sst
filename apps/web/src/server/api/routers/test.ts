@@ -1,8 +1,8 @@
 import { SQS } from "@aws-sdk/client-sqs";
-import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { test } from "@flashmap/core/src/db/schema";
+import { z } from "zod";
 
 // JS SDK v3 does not support global configuration.
 // Codemod has attempted to pass values to each service client in this file.

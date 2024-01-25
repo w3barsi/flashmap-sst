@@ -1,35 +1,42 @@
-import Link from "next/link";
+import { AlignLeftIcon } from "lucide-react";
+import { type ReactNode } from "react";
 
-import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
-import CreateTest from "./_components/create-test";
-import CreateQueue from "./_components/create-queue";
+import MaxWidthWrapper from "~/components/max-width-wrapper";
+
+import FileList from "./_components/files-list";
+
+const topics = [
+  " Algebra and Geometry ",
+  " Biology: Cells, Genetics, Evolution ",
+  " World History: Ancient to Modern ",
+  " Literature: Novels, Plays, Poems ",
+  " Chemistry: Matter, Reactions, Atomic Structure ",
+  " Physics: Forces, Energy, Motion ",
+  " Spanish: Language, Culture, Communication ",
+  " Environmental Science: Ecology, Conservation, Sustainability ",
+  " Economics: Supply, Demand, Market Systems ",
+  " Computer Science: Coding, Algorithms, Software Development ",
+];
 
 export default async function Home() {
-  const session = await getServerAuthSession();
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <CreateTest />
-        <CreateQueue/>
-
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-2xl text-white"></p>
-
-          <div className="flex flex-col items-center justify-center gap-4">
-            <p className="text-center text-2xl text-white">
-              {session && <span>Logged in as {session.user?.name}</span>}
-            </p>
-            <Link
-              href={session ? "/api/auth/signout" : "/api/auth/signin"}
-              className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-            >
-              {session ? "Sign out" : "Sign in"}
-            </Link>
-          </div>
+    <main className="flex min-h-screen flex-col items-center bg-white p-3 transition-all">
+      <MaxWidthWrapper>
+        <div className="h-80 w-full items-center justify-center rounded-xl border-2 text-2xl font-bold  shadow-brut shadow-black">
+          Upload Dropzone
         </div>
-      </div>
+      </MaxWidthWrapper>
+      <MaxWidthWrapper>
+        <h1 className="p-3 pt-5 text-4xl">Uploaded Files:</h1>
+        <FileList topics={topics} />
+      </MaxWidthWrapper>
     </main>
   );
 }
+
+const DivWithIconProps = (props: { icon: ReactNode }) => {
+  return <div>{props.icon}</div>;
+};
+
+// Sample call
+<DivWithIconProps icon={<AlignLeftIcon />} />;
