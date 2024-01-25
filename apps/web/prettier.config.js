@@ -1,4 +1,4 @@
-/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').options} */
 const config = {
   importOrder: [
     "<THIRD_PARTY_MODULES>",
